@@ -1,0 +1,169 @@
+<div id="tabs">
+	<div class="tabs dostavka-slider">
+		<div class="tab active">
+			<a href="#tab1" class="active"> <span class="tab-img"><img src="/assets/images/gazel.png" alt=""></span>
+				<span class="tab-name">Газель</span> </a>
+		</div>
+		<div class="tab">
+			<a href="#tab2" class="active"> <span class="tab-img"><img src="/assets/images/gruz35.jpg" alt=""></span>
+				<span class="tab-name">Грузовик 3/5 тонн</span> </a>
+		</div>
+		<div class="tab">
+			<a href="#tab3" class="active"> <span class="tab-img"><img src="/assets/images/manipul.png" alt=""></span>
+				<span class="tab-name">Манипулятор</span> </a>
+		</div>
+		<div class="tab">
+			<a href="#tab4" class="active"> <span class="tab-img"><img src="/assets/images/dlinnomer.png" alt=""></span>
+				<span class="tab-name">Длинномер 20 тонн</span> </a>
+		</div>
+	</div>
+	<div class="tabs-content">
+		<div id="tab1">
+			<table class="dostavka-table">
+				<tbody>
+					<tr>
+						<th>
+							Города
+						</th>
+						<th>
+							км
+						</th>
+						<th>
+							Газель
+						</th>
+						<th>
+							Газель 6м
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Тула
+						</td>
+						<td>
+							12
+						</td>
+						<td>
+							1100
+						</td>
+						<td>
+							1320
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Алексин
+						</td>
+						<td>
+							76
+						</td>
+						<td>
+							3630
+						</td>
+						<td>
+							3850
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="tab2" style="display: none;">
+			<table class="dostavka-table">
+				<tbody>
+					<tr>
+						<th>
+							Города
+						</th>
+						<th>
+							км
+						</th>
+						<th>
+							3 тонны, руб.
+						</th>
+						<th>
+							5 тонн, руб.
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Тула</td>
+						<td>
+							12
+						</td>
+						<td>
+							2200
+						</td>
+						<td>
+							2640
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Алексин
+						</td>
+						<td>
+							76
+						</td>
+						<td>
+							4400
+						</td>
+						<td>
+							5280
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="tab4" style="display: none;">
+			<table class="dostavka-table">
+				<tbody>
+					<tr>
+						<th>
+							Направление
+						</th>
+						<th>
+							Стоимость, руб.
+						</th>
+					</tr>
+					<tr>
+						<td>
+							Тула
+						</td>
+						<td>
+							6600
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Щекинский район
+						</td>
+						<td>
+							7700
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+	var tabs = $('#tabs');
+	$('.tabs-content > div', tabs).each(function (i) {
+		if (i != 0) $(this).hide(0);
+	});
+	tabs.on('click', '.tabs a', function (e) {
+		/* Предотвращаем стандартную обработку клика по ссылке */
+		e.preventDefault();
+
+		/* Узнаем значения ID блока, который нужно отобразить */
+		var tabId = $(this).attr('href');
+
+		/* Удаляем все классы у якорей и ставим active текущей вкладке */
+		$('.tabs .tab', tabs).removeClass('active');
+		$(this).parent('.tab').addClass('active');
+		
+		/* Прячем содержимое всех вкладок и отображаем содержимое нажатой */
+		$('.tabs-content > div', tabs).hide(0);
+		$(tabId).show();
+	});
+</script>
